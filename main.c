@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-//h sunartisi gia diagrafi proiontos apo to stock den prolaba na tin teleiwsw... den douleuei kanonika.
-
-/*edw einai ta struckts pou eftia3a gia tous pelates kai ta proionta*/
 typedef struct pelatis {
     int anagnwristiko;
     char name[50], epwnumo[50];
@@ -18,7 +15,6 @@ typedef struct podilato {
 }podilata;
 
 
-/*edw einai oi sunartiseis pou xreisimopoiw gia kathe entoli tou menu*/
 void arxikopoihshPelatwn(pelates *rootPe){rootPe=NULL;}
 void arxikopoihshProiontwn(podilata *rootPo){rootPo=NULL;}
 pelates insertPelati(pelates *rootPe);
@@ -32,7 +28,7 @@ void allagh_posotitas(podilata *rootPo);
 void allagh_d();
 
 
-//sto kuriws programma apla kalw tis sunartiseis gia kathe epilogi tou menou.
+
 int main(int argc, char *argv[]){
     int x, anagnwristiko;
     char a='c';
@@ -100,8 +96,6 @@ int main(int argc, char *argv[]){
 }
 
 
-
-/*auti einai i sunartisi pou dimiourgei neo kombo kai prosthetei enan neo pelati sti lista*/
 pelates insertPelati(pelates *rootPe){
     int anagnwristiko;
     char name[50], epwnumo[50], dieuthinsi[50];
@@ -133,17 +127,14 @@ pelates insertPelati(pelates *rootPe){
 }
 
 
-/*aui einai i sunartisi pou emfanizei to menu me tis entoles pou mporei na kanei o xristis*/
 void menu(){
     printf("MENU :\n");
-    printf("Kataxerisi pelati (1)\nDiagrafi petati (2)\nProboli listas pelatwn(3)\n");
+    printf("Kataxwrisi pelati (1)\nDiagrafi petati (2)\nProboli listas pelatwn(3)\n");
     printf("Eisagwgi proiontos sto stock (4)\nDiagrafi proiontos sto stock (5)\n");
     printf("Proboli listas proiontos (6)\nAllagh posotitas enos proiontos (7)\n");
     printf("E3odos programmatos (8)\nAllagh dieuthinsis (9)\n");
 }
 
-
-/*auti einai i sunartisi pou emfanizei ti lista twn pelatwn pou briskontai sto arxeio*/
 void printList_pelatwn(){
     int counter=0;
     FILE *pelatwn;
@@ -159,8 +150,6 @@ void printList_pelatwn(){
     fclose(pelatwn);
 }
 
-
-/*auti einai i sunartisi pou emfanizei ta proionta pou briskontai sto arxeio*/
 void printList_proiontwn(){
     FILE *podilatwn;
     if((podilatwn=fopen("Podilata.txt" , "a+")) == NULL)
@@ -175,12 +164,6 @@ void printList_proiontwn(){
     fclose(podilatwn);
 }
 
-
-/*auti einai i sunartisi pou diagrafei kapoio pelati apo to arxeio*/
-/*antigrafei to arxeio pelatwn se ena allo arxeio 'target' kai an brei ton pelati pou
-einai gia diagrafi ton grafei se ena trito arxeio to 'deleted' kai meta antigrafei
-to target to opoio den exei ton pelati pou theloume na diagrapsoume sto kanoniko arxeio 
-twn pelatwn*/
 void diagrafi_pelati(){
     int i, counter=0, binco=0, keno=0;
     char code[1000]={0}, x[1000]={0};
@@ -259,7 +242,6 @@ void diagrafi_pelati(){
     }
 }
 
-/*auti einai i sunartisi pou eisagei ena neo proiwn sto arxeio*/
 podilata insertProion(podilata *rootPo){
     int anagnwristiko, megethosPlaisiou, posotita;
     char etairia[50],typos[50];
@@ -294,8 +276,6 @@ podilata insertProion(podilata *rootPo){
     return *rootPo;
 }
 
-
-/*auti einai i sunartisi pou diagrafi kapoio proion apo to arxeio thn opoia den prolaba na tin teleiwsw....*/
 void diagrafi_proion(){
 	FILE *target=fopen("target.txt","w+");
 	char input1;
@@ -381,10 +361,6 @@ void diagrafi_proion(){
     }
 }
 
-
-/*auti einai i sunartisi pou allazei tin posotita ,eite tin meiwnei eite tin au3anei, enos proiontos apo to arxeio*/
-/*zhtaei tin posotita pou thelei o xristis na balei anti gia auti pou exei to proion kai tin allazei
-xreisimopoiwntas pali ena bohthiko arxeio to 'deleted'*/
 void allagh_posotitas(podilata *rootPo){
     char x[1000]={0}, y[1000]={0}, code[1000]={0};
     char adeio=' ';
